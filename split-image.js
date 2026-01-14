@@ -249,7 +249,7 @@ let A = class extends HTMLElement {
 A.elementStyles = [], A.shadowRootOptions = { mode: "open" }, A[E("elementProperties")] = /* @__PURE__ */ new Map(), A[E("finalized")] = /* @__PURE__ */ new Map(), vt?.({ ReactiveElement: A }), (k.reactiveElementVersions ??= []).push("2.1.2");
 const F = globalThis, Y = (r) => r, H = F.trustedTypes, Z = H ? H.createPolicy("lit-html", { createHTML: (r) => r }) : void 0, nt = "$lit$", f = `lit$${Math.random().toFixed(9).slice(2)}$`, at = "?" + f, mt = `<${at}>`, b = document, x = () => b.createComment(""), T = (r) => r === null || typeof r != "object" && typeof r != "function", W = Array.isArray, bt = (r) => W(r) || typeof r?.[Symbol.iterator] == "function", j = `[ 	
 \f\r]`, P = /<(?:(!--|\/[^a-zA-Z])|(\/?[a-zA-Z][^>\s]*)|(\/?$))/g, Q = /-->/g, tt = />/g, v = RegExp(`>|${j}(?:([^\\s"'>=/]+)(${j}*=${j}*(?:[^ 	
-\f\r"'\`<>=]|("|')|))|$)`, "g"), et = /'/g, st = /"/g, ht = /^(?:script|style|textarea|title)$/i, At = (r) => (t, ...e) => ({ _$litType$: r, strings: t, values: e }), U = At(1), w = /* @__PURE__ */ Symbol.for("lit-noChange"), _ = /* @__PURE__ */ Symbol.for("lit-nothing"), it = /* @__PURE__ */ new WeakMap(), m = b.createTreeWalker(b, 129);
+\f\r"'\`<>=]|("|')|))|$)`, "g"), et = /'/g, st = /"/g, ht = /^(?:script|style|textarea|title)$/i, At = (r) => (t, ...e) => ({ _$litType$: r, strings: t, values: e }), O = At(1), w = /* @__PURE__ */ Symbol.for("lit-noChange"), _ = /* @__PURE__ */ Symbol.for("lit-nothing"), it = /* @__PURE__ */ new WeakMap(), m = b.createTreeWalker(b, 129);
 function lt(r, t) {
   if (!W(r) || !r.hasOwnProperty("raw")) throw Error("invalid template strings array");
   return Z !== void 0 ? Z.createHTML(t) : t;
@@ -279,8 +279,8 @@ class M {
     for (; (i = m.nextNode()) !== null && a.length < h; ) {
       if (i.nodeType === 1) {
         if (i.hasAttributes()) for (const d of i.getAttributeNames()) if (d.endsWith(nt)) {
-          const $ = g[n++], y = i.getAttribute(d).split(f), O = /([.?@])?(.*)/.exec($);
-          a.push({ type: 1, index: o, name: O[2], strings: y, ctor: O[1] === "." ? Pt : O[1] === "?" ? Et : O[1] === "@" ? Ct : D }), i.removeAttribute(d);
+          const $ = g[n++], y = i.getAttribute(d).split(f), z = /([.?@])?(.*)/.exec($);
+          a.push({ type: 1, index: o, name: z[2], strings: y, ctor: z[1] === "." ? Pt : z[1] === "?" ? Et : z[1] === "@" ? Ct : D }), i.removeAttribute(d);
         } else d.startsWith(f) && (a.push({ type: 6, index: o }), i.removeAttribute(d));
         if (ht.test(i.tagName)) {
           const d = i.textContent.split(f), $ = d.length - 1;
@@ -326,7 +326,7 @@ class St {
     for (; a !== void 0; ) {
       if (n === a.index) {
         let u;
-        a.type === 2 ? u = new z(o, o.nextSibling, this, t) : a.type === 1 ? u = new a.ctor(o, a.name, a.strings, this, t) : a.type === 6 && (u = new xt(o, this, t)), this._$AV.push(u), a = s[++h];
+        a.type === 2 ? u = new U(o, o.nextSibling, this, t) : a.type === 1 ? u = new a.ctor(o, a.name, a.strings, this, t) : a.type === 6 && (u = new xt(o, this, t)), this._$AV.push(u), a = s[++h];
       }
       n !== a?.index && (o = m.nextNode(), n++);
     }
@@ -337,7 +337,7 @@ class St {
     for (const s of this._$AV) s !== void 0 && (s.strings !== void 0 ? (s._$AI(t, s, e), e += s.strings.length - 2) : s._$AI(t[e])), e++;
   }
 }
-class z {
+class U {
   get _$AU() {
     return this._$AM?._$AU ?? this._$Cv;
   }
@@ -383,7 +383,7 @@ class z {
     W(this._$AH) || (this._$AH = [], this._$AR());
     const e = this._$AH;
     let s, i = 0;
-    for (const o of t) i === e.length ? e.push(s = new z(this.O(x()), this.O(x()), this, this.options)) : s = e[i], s._$AI(o), i++;
+    for (const o of t) i === e.length ? e.push(s = new U(this.O(x()), this.O(x()), this, this.options)) : s = e[i], s._$AI(o), i++;
     i < e.length && (this._$AR(s && s._$AB.nextSibling, i), e.length = i);
   }
   _$AR(t = this._$AA.nextSibling, e) {
@@ -462,13 +462,13 @@ class xt {
   }
 }
 const Tt = F.litHtmlPolyfillSupport;
-Tt?.(M, z), (F.litHtmlVersions ??= []).push("3.3.2");
+Tt?.(M, U), (F.litHtmlVersions ??= []).push("3.3.2");
 const Mt = (r, t, e) => {
   const s = e?.renderBefore ?? t;
   let i = s._$litPart$;
   if (i === void 0) {
     const o = e?.renderBefore ?? null;
-    s._$litPart$ = i = new z(t.insertBefore(x(), o), o, void 0, e ?? {});
+    s._$litPart$ = i = new U(t.insertBefore(x(), o), o, void 0, e ?? {});
   }
   return i._$AI(r), i;
 };
@@ -496,15 +496,15 @@ class C extends A {
   }
 }
 C._$litElement$ = !0, C.finalized = !0, V.litElementHydrateSupport?.({ LitElement: C });
-const zt = V.litElementPolyfillSupport;
-zt?.({ LitElement: C });
+const Ut = V.litElementPolyfillSupport;
+Ut?.({ LitElement: C });
 (V.litElementVersions ??= []).push("4.2.2");
-const Ot = (r) => (t, e) => {
+const zt = (r) => (t, e) => {
   e !== void 0 ? e.addInitializer(() => {
     customElements.define(r, t);
   }) : customElements.define(r, t);
 };
-const Ut = { attribute: !0, type: String, converter: N, reflect: !1, hasChanged: q }, Rt = (r = Ut, t, e) => {
+const Ot = { attribute: !0, type: String, converter: N, reflect: !1, hasChanged: q }, Rt = (r = Ot, t, e) => {
   const { kind: s, metadata: i } = e;
   let o = globalThis.litPropertyMetadata.get(i);
   if (o === void 0 && globalThis.litPropertyMetadata.set(i, o = /* @__PURE__ */ new Map()), s === "setter" && ((r = Object.create(r)).wrapped = !0), o.set(e.name, r), s === "accessor") {
@@ -542,7 +542,7 @@ var Ht = Object.defineProperty, kt = Object.getOwnPropertyDescriptor, p = (r, t,
 };
 let l = class extends C {
   constructor() {
-    super(...arguments), this.unitType = "rem", this.angle = 0, this.initialPosition = 50, this.enableClickToJump = !0, this.enableHoverFollow = !1, this.dividerSize = 0.5, this.containerStyle = "", this.borderWidth = 0, this.borderType = "solid", this.borderRadius = 1, this.handleSize = 3, this.arrowSize = 2, this.handleGap = 0, this.shadowColor = "rgba(0, 0, 0, 0.3)", this.baseColor = "rgb(255, 255, 255)", this.handleType = "custom", this.handleStyle = "", this.dividerType = "single", this.doubleDividerStyle = "", this.arrowSvg = U`
+    super(...arguments), this.unitType = "rem", this.angle = 0, this.initialPosition = 50, this.enableClickToJump = !0, this.enableHoverFollow = !1, this.dividerSize = 0.5, this.containerStyle = "", this.borderWidth = 0, this.borderType = "solid", this.borderRadius = 1, this.handleSize = 3, this.arrowSize = 2, this.handleGap = 0, this.shadowColor = "rgba(0, 0, 0, 0.3)", this.baseColor = "rgb(255, 255, 255)", this.handleType = "custom", this.handleStyle = "", this.dividerType = "single", this.doubleDividerStyle = "", this.arrowSvg = O`
     <svg
       xmlns="http://www.w3.org/2000/svg"
       height="24px"
@@ -580,7 +580,9 @@ let l = class extends C {
   }
   // Keep this call in firstUpdated only for the initial math setup
   firstUpdated() {
-    if (window.KSIIW === !1) return;
+    window.KSIIW !== !1 && this.forceUpdate();
+  }
+  forceUpdate() {
     const r = this.initialPosition / 100;
     this._targetProgress = r, this._currentProgress = r, this.set_style_properties(), this._update_progress_dependents(r - 0.5);
   }
@@ -623,13 +625,13 @@ let l = class extends C {
   }
   getDividerChild() {
     if (this.dividerType == "double")
-      return U`<div
+      return O`<div
         class="dividerchild"
         style=${this.doubleDividerStyle}
       ></div>`;
   }
   getArrows() {
-    return this.handleType == "minimal" ? "" : U`<div class="arrow one">${this.arrowSvg}</div>
+    return this.handleType == "minimal" ? "" : O`<div class="arrow one">${this.arrowSvg}</div>
       <div class="arrow two">${this.arrowSvg}</div>`;
   }
   //updated at start
@@ -661,7 +663,7 @@ let l = class extends C {
     this._update_progress_dependents(this._targetProgress - 0.5);
   }
   render() {
-    return U`
+    return O`
       <div
         class="divroot"
         style=${this.containerStyle}
@@ -757,7 +759,7 @@ p([
   I()
 ], l.prototype, "_currentProgress", 2);
 l = p([
-  Ot("ez-image-slider")
+  zt("ez-image-slider")
 ], l);
 export {
   l as MyElement
