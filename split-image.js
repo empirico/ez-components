@@ -247,7 +247,7 @@ let A = class extends HTMLElement {
   }
 };
 A.elementStyles = [], A.shadowRootOptions = { mode: "open" }, A[E("elementProperties")] = /* @__PURE__ */ new Map(), A[E("finalized")] = /* @__PURE__ */ new Map(), vt?.({ ReactiveElement: A }), (k.reactiveElementVersions ??= []).push("2.1.2");
-const F = globalThis, Y = (r) => r, H = F.trustedTypes, Z = H ? H.createPolicy("lit-html", { createHTML: (r) => r }) : void 0, nt = "$lit$", f = `lit$${Math.random().toFixed(9).slice(2)}$`, at = "?" + f, mt = `<${at}>`, b = document, x = () => b.createComment(""), T = (r) => r === null || typeof r != "object" && typeof r != "function", W = Array.isArray, bt = (r) => W(r) || typeof r?.[Symbol.iterator] == "function", j = `[ 	
+const F = globalThis, Y = (r) => r, H = F.trustedTypes, Z = H ? H.createPolicy("lit-html", { createHTML: (r) => r }) : void 0, nt = "$lit$", f = `lit$${Math.random().toFixed(9).slice(2)}$`, at = "?" + f, mt = `<${at}>`, b = document, T = () => b.createComment(""), x = (r) => r === null || typeof r != "object" && typeof r != "function", W = Array.isArray, bt = (r) => W(r) || typeof r?.[Symbol.iterator] == "function", j = `[ 	
 \f\r]`, P = /<(?:(!--|\/[^a-zA-Z])|(\/?[a-zA-Z][^>\s]*)|(\/?$))/g, Q = /-->/g, tt = />/g, v = RegExp(`>|${j}(?:([^\\s"'>=/]+)(${j}*=${j}*(?:[^ 	
 \f\r"'\`<>=]|("|')|))|$)`, "g"), et = /'/g, st = /"/g, ht = /^(?:script|style|textarea|title)$/i, At = (r) => (t, ...e) => ({ _$litType$: r, strings: t, values: e }), O = At(1), w = /* @__PURE__ */ Symbol.for("lit-noChange"), _ = /* @__PURE__ */ Symbol.for("lit-nothing"), it = /* @__PURE__ */ new WeakMap(), m = b.createTreeWalker(b, 129);
 function lt(r, t) {
@@ -286,8 +286,8 @@ class M {
           const d = i.textContent.split(f), $ = d.length - 1;
           if ($ > 0) {
             i.textContent = H ? H.emptyScript : "";
-            for (let y = 0; y < $; y++) i.append(d[y], x()), m.nextNode(), a.push({ type: 2, index: ++o });
-            i.append(d[$], x());
+            for (let y = 0; y < $; y++) i.append(d[y], T()), m.nextNode(), a.push({ type: 2, index: ++o });
+            i.append(d[$], T());
           }
         }
       } else if (i.nodeType === 8) if (i.data === at) a.push({ type: 2, index: o });
@@ -306,7 +306,7 @@ class M {
 function S(r, t, e = r, s) {
   if (t === w) return t;
   let i = s !== void 0 ? e._$Co?.[s] : e._$Cl;
-  const o = T(t) ? void 0 : t._$litDirective$;
+  const o = x(t) ? void 0 : t._$litDirective$;
   return i?.constructor !== o && (i?._$AO?.(!1), o === void 0 ? i = void 0 : (i = new o(r), i._$AT(r, e, s)), s !== void 0 ? (e._$Co ??= [])[s] = i : e._$Cl = i), i !== void 0 && (t = S(r, i._$AS(r, t.values), i, s)), t;
 }
 class St {
@@ -326,7 +326,7 @@ class St {
     for (; a !== void 0; ) {
       if (n === a.index) {
         let u;
-        a.type === 2 ? u = new U(o, o.nextSibling, this, t) : a.type === 1 ? u = new a.ctor(o, a.name, a.strings, this, t) : a.type === 6 && (u = new xt(o, this, t)), this._$AV.push(u), a = s[++h];
+        a.type === 2 ? u = new U(o, o.nextSibling, this, t) : a.type === 1 ? u = new a.ctor(o, a.name, a.strings, this, t) : a.type === 6 && (u = new Tt(o, this, t)), this._$AV.push(u), a = s[++h];
       }
       n !== a?.index && (o = m.nextNode(), n++);
     }
@@ -356,7 +356,7 @@ class U {
     return this._$AB;
   }
   _$AI(t, e = this) {
-    t = S(this, t, e), T(t) ? t === _ || t == null || t === "" ? (this._$AH !== _ && this._$AR(), this._$AH = _) : t !== this._$AH && t !== w && this._(t) : t._$litType$ !== void 0 ? this.$(t) : t.nodeType !== void 0 ? this.T(t) : bt(t) ? this.k(t) : this._(t);
+    t = S(this, t, e), x(t) ? t === _ || t == null || t === "" ? (this._$AH !== _ && this._$AR(), this._$AH = _) : t !== this._$AH && t !== w && this._(t) : t._$litType$ !== void 0 ? this.$(t) : t.nodeType !== void 0 ? this.T(t) : bt(t) ? this.k(t) : this._(t);
   }
   O(t) {
     return this._$AA.parentNode.insertBefore(t, this._$AB);
@@ -365,7 +365,7 @@ class U {
     this._$AH !== t && (this._$AR(), this._$AH = this.O(t));
   }
   _(t) {
-    this._$AH !== _ && T(this._$AH) ? this._$AA.nextSibling.data = t : this.T(b.createTextNode(t)), this._$AH = t;
+    this._$AH !== _ && x(this._$AH) ? this._$AA.nextSibling.data = t : this.T(b.createTextNode(t)), this._$AH = t;
   }
   $(t) {
     const { values: e, _$litType$: s } = t, i = typeof s == "number" ? this._$AC(t) : (s.el === void 0 && (s.el = M.createElement(lt(s.h, s.h[0]), this.options)), s);
@@ -383,7 +383,7 @@ class U {
     W(this._$AH) || (this._$AH = [], this._$AR());
     const e = this._$AH;
     let s, i = 0;
-    for (const o of t) i === e.length ? e.push(s = new U(this.O(x()), this.O(x()), this, this.options)) : s = e[i], s._$AI(o), i++;
+    for (const o of t) i === e.length ? e.push(s = new U(this.O(T()), this.O(T()), this, this.options)) : s = e[i], s._$AI(o), i++;
     i < e.length && (this._$AR(s && s._$AB.nextSibling, i), e.length = i);
   }
   _$AR(t = this._$AA.nextSibling, e) {
@@ -409,11 +409,11 @@ class D {
   _$AI(t, e = this, s, i) {
     const o = this.strings;
     let n = !1;
-    if (o === void 0) t = S(this, t, e, 0), n = !T(t) || t !== this._$AH && t !== w, n && (this._$AH = t);
+    if (o === void 0) t = S(this, t, e, 0), n = !x(t) || t !== this._$AH && t !== w, n && (this._$AH = t);
     else {
       const h = t;
       let a, u;
-      for (t = o[0], a = 0; a < o.length - 1; a++) u = S(this, h[s + a], e, a), u === w && (u = this._$AH[a]), n ||= !T(u) || u !== this._$AH[a], u === _ ? t = _ : t !== _ && (t += (u ?? "") + o[a + 1]), this._$AH[a] = u;
+      for (t = o[0], a = 0; a < o.length - 1; a++) u = S(this, h[s + a], e, a), u === w && (u = this._$AH[a]), n ||= !x(u) || u !== this._$AH[a], u === _ ? t = _ : t !== _ && (t += (u ?? "") + o[a + 1]), this._$AH[a] = u;
     }
     n && !i && this.j(t);
   }
@@ -450,7 +450,7 @@ class Ct extends D {
     typeof this._$AH == "function" ? this._$AH.call(this.options?.host ?? this.element, t) : this._$AH.handleEvent(t);
   }
 }
-class xt {
+class Tt {
   constructor(t, e, s) {
     this.element = t, this.type = 6, this._$AN = void 0, this._$AM = e, this.options = s;
   }
@@ -461,14 +461,14 @@ class xt {
     S(this, t);
   }
 }
-const Tt = F.litHtmlPolyfillSupport;
-Tt?.(M, U), (F.litHtmlVersions ??= []).push("3.3.2");
+const xt = F.litHtmlPolyfillSupport;
+xt?.(M, U), (F.litHtmlVersions ??= []).push("3.3.2");
 const Mt = (r, t, e) => {
   const s = e?.renderBefore ?? t;
   let i = s._$litPart$;
   if (i === void 0) {
     const o = e?.renderBefore ?? null;
-    s._$litPart$ = i = new U(t.insertBefore(x(), o), o, void 0, e ?? {});
+    s._$litPart$ = i = new U(t.insertBefore(T(), o), o, void 0, e ?? {});
   }
   return i._$AI(r), i;
 };
@@ -566,14 +566,25 @@ let l = class extends C {
   //If divider is double here you can override the style of the smaller divider
   updated(r) {
     [
+      "unitType",
+      "angle",
+      "initialPosition",
+      "enableClickToJump",
+      "enableHoverFollow",
       "dividerSize",
+      "containerStyle",
+      "borderWidth",
+      "borderType",
+      "borderRadius",
       "handleSize",
       "arrowSize",
       "handleGap",
-      "angle",
-      "baseColor",
       "shadowColor",
-      "borderRadius"
+      "baseColor",
+      "handleType",
+      "handleStyle",
+      "dividerType",
+      "doubleDividerStyle"
     ].some(
       (s) => r.has(s)
     ) && (this.set_style_properties(), this._update_progress_dependents(this._currentProgress - 0.5));
